@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-export default function TrackingScript() {
+export default function Tracking() {
     useEffect(() => {
         if (typeof window !== "undefined") {
             // Tracking code logic here
