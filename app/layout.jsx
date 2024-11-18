@@ -1,9 +1,7 @@
-'use client';
-
 import '../styles/globals.css';
 import { Footer } from '../components/footer';
 import { Header } from '../components/header';
-import { useEffect } from 'react';
+import Tracking from '../components/tracking';
 
 export const metadata = {
     title: {
@@ -13,13 +11,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-    
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            // Tracking code logic here
-            console.log('Tracking code executed');
-        }
-    }, []);
     
     return (
         <html lang="en" data-theme="lofi">
