@@ -25,7 +25,7 @@ export default async function Page() {
             <Markdown content={explainer} />
             <div className="flex w-full pt-12 justify-center">
                 {/* <FeedbackForm /> */}
-                {/* Marketo Form Here */}
+                <GeoMarketoForm />
             </div>
         </>
     );
