@@ -1,5 +1,6 @@
 import { FeedbackForm } from 'components/feedback-form';
 import { Markdown } from '../../components/markdown';
+import GeoMarketoForm from '../../components/geo-form';
 
 export const metadata = {
     title: 'Classics'
