@@ -13,7 +13,8 @@ export default function Tracking() {
                 if (!didInit) {
                     didInit = true;
                     if (window.Munchkin) {
-                        window.Munchkin.init('509-TVZ-333', { altIds: ['168-CRJ-586'] });
+                        // window.Munchkin.init('509-TVZ-333', { altIds: ['168-CRJ-586'] });
+                        window.Munchkin.init('168-CRJ-586');
                     } else {
                         console.error('Munchkin script did not load.');
                     }
@@ -32,11 +33,6 @@ export default function Tracking() {
             };
 
             document.getElementsByTagName('head')[0].appendChild(script);
-
-            // Log when the page reloads completely
-            if (performance.navigation.type === 1) {
-                console.log('Page reloaded completely.');
-            }
 
             // Log changes to the path
             const logPathChange = () => {
