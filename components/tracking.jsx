@@ -38,6 +38,23 @@ export default function Tracking() {
             const logPathChange = () => {
                 console.log(`Path changed to: ${window.location.pathname}`);
             };
+            
+            const originalPushState = history.pushState;
+            const originalReplaceState = history.replaceState;
+        
+            const onPathChange = () => {
+                console.log('Path changed to:', window.location.pathname);
+            };
+        
+            history.pushState = function (...args) {
+                originalPushState.apply(this, args);
+                onPathChange();
+            };
+        
+            history.replaceState = function (...args) {
+                originalReplaceState.apply(this, args);
+                onPathChange();
+            };
 
             // Handle link clicks
             const logLinkClick = (event) => {
