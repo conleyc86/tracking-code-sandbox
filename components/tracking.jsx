@@ -7,6 +7,32 @@ export default function Tracking() {
         if (typeof window !== "undefined") {
             console.log('Tracking component mounted.');
 
+            // Inject the Munchkin tracking script
+            let didInit = false;
+            const initMunchkin = () => {
+                if (!didInit) {
+                    didInit = true;
+                    if (window.Munchkin) {
+                        window.Munchkin.init('509-TVZ-333', { altIds: ['168-CRJ-586'] });
+                    } else {
+                        console.error('Munchkin script did not load.');
+                    }
+                }
+            };
+
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            script.src = '//munchkin.marketo.net/munchkin.js';
+            script.onload = initMunchkin;
+            script.onreadystatechange = function () {
+                if (this.readyState === 'complete' || this.readyState === 'loaded') {
+                    initMunchkin();
+                }
+            };
+
+            document.getElementsByTagName('head')[0].appendChild(script);
+
             // Log when the page reloads completely
             if (performance.navigation.type === 1) {
                 console.log('Page reloaded completely.');
