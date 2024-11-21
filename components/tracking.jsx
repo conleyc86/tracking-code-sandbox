@@ -14,9 +14,7 @@ export default function Tracking() {
                     didInit = true;
                     if (window.Munchkin) {
                         // window.Munchkin.init('509-TVZ-333', { altIds: ['168-CRJ-586'] });
-                        window.Munchkin.init('168-CRJ-586', {
-                        cookieDomain: 'trackingcodesandbox.netlify.app'
-                      });
+                        window.Munchkin.init('168-CRJ-586');
                     } else {
                         console.error('Munchkin script did not load.');
                     }
