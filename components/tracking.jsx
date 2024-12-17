@@ -38,20 +38,18 @@ export default function Tracking() {
             const logPathChange = () => {
                 
             const currentPath = window.location.pathname + window.location.search;
-            Munchkin.munchkinFunction('visitWebPage', {
-                url: currentPath,
-            });
-                console.log(`Path changed to: ${window.location.pathname}`);
+            // Munchkin here
+                console.log(`1. Path changed to: ${window.location.pathname}`);
             };
             
             const originalPushState = history.pushState;
             const originalReplaceState = history.replaceState;
         
             const onPathChange = () => {
-                console.log('Path changed to:', window.location.pathname);
-                Munchkin.munchkinFunction('visitWebPage', {
-                    'url': window.location.pathname
-                });
+                console.log('2. Path changed to:', window.location.pathname);
+                // Munchkin.munchkinFunction('visitWebPage', {
+                //     'url': window.location.pathname
+                // });
             };
         
             history.pushState = function (...args) {
