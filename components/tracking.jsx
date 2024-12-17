@@ -49,6 +49,9 @@ export default function Tracking() {
         
             const onPathChange = () => {
                 console.log('Path changed to:', window.location.pathname);
+                Munchkin.munchkinFunction('visitWebPage', {
+                    'url': window.location.pathname
+                });
             };
         
             history.pushState = function (...args) {
